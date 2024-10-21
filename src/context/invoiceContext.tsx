@@ -82,7 +82,7 @@ export const InvoiceProvider = ({
   });
 
   const handleSubmit = async (values: typeof form.values) => {
-    if (id === NEW) {
+    if (id === NEW || !id) {
       await handleCreate(values);
       reactToPrintFn();
     } else {
