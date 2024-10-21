@@ -32,6 +32,9 @@ dependencies:
   '@tabler/icons-react':
     specifier: ^3.19.0
     version: 3.19.0(react@18.3.1)
+  '@vanilla-extract/css':
+    specifier: ^1.16.0
+    version: 1.16.0
   '@vanilla-extract/next-plugin':
     specifier: ^2.4.6
     version: 2.4.6(@types/node@20.16.13)(next@14.2.13)(webpack@5.95.0)
