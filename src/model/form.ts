@@ -41,3 +41,55 @@ export const cleanForm: FormProps = {
     },
   ],
 };
+// export const cleanForm: FormProps = {
+//   company: {
+//     companyName: "Tech Innovations Inc.",
+//     firstName: "John",
+//     lastName: "Smith",
+//     companyWebsite: "www.techinnovations.com",
+//     companyAddress: "123 Main St",
+//     cityStateZip: "New York NY 10001",
+//     country: "United States",
+//     phoneNo: "(212) 555-1234",
+//     email: "john.smith@techinnovations.com",
+//   },
+//   client: {
+//     clientCompany: "Acme Corp",
+//     clientFirstName: "Jane",
+//     clientLastName: "Doe",
+//     clientAddress: "456 Elm Ave",
+//     clientCityStateZip: "Los Angeles CA 90001",
+//     clientCountry: "United States",
+//     clientEmail: "jane.doe@acmecorp.com",
+//   },
+//   invoice: {
+//     no: "INV001",
+//     date: new Date(),
+//     dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+//     subtotal: 10000,
+//     tax: 2000,
+//     discount: 500,
+//     total: 11050,
+//     notes: "Payment terms: Net 30 days",
+//   },
+//   table: [
+//     {
+//       itemId: 1,
+//       description: "Laptop Computer",
+//       quantity: 2,
+//       price: 4995,
+//     },
+//     {
+//       itemId: 2,
+//       description: "External Hard Drive",
+//       quantity: 1,
+//       price: 299,
+//     },
+//     {
+//       itemId: 3,
+//       description: "Software License",
+//       quantity: 1,
+//       price: 199,
+//     },
+//   ],
+// };

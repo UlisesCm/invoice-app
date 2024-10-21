@@ -1,3 +1,4 @@
+"use client";
 import {
   createInvoice,
   getInvoiceById,
@@ -116,8 +117,10 @@ export const InvoiceProvider = ({
         notes: invoice.notes,
       };
       const createdInvoice = await createInvoice(newInvoice);
-      const { _id } = createdInvoice.invoice;
-      router.push(`/${_id}`);
+      const id = createdInvoice.invoice._id;
+      if (id) {
+        router.push(`/${id}`);
+      }
     } catch (error) {
       console.log("handle create", error);
     }
