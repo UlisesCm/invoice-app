@@ -15,12 +15,12 @@ export const DropzoneComponents = (props: Partial<DropzoneProps>) => {
 
   const preview = () => {
     if (files.length > 0 || url) {
-      let imageUrl: any;
+      let imageUrl: string | null | undefined;
       let props;
       if (files.length > 0) {
         imageUrl = URL.createObjectURL(files[0]);
         props = {
-          onLoad: () => URL.revokeObjectURL(imageUrl),
+          onLoad: () => URL.revokeObjectURL(imageUrl as string),
         };
       } else {
         imageUrl = url;

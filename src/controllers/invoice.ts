@@ -2,17 +2,17 @@ import { Invoice } from "@/interface/invoice";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 
-interface ResponseInvoice extends Invoice {
-  _id: string;
+interface ResponseInvoice {
+  message: string;
+  invoice: Invoice extends { _id: string }
+    ? Invoice
+    : Invoice & { _id: string };
 }
 // Create a new invoice
-async function createInvoice(invoiceData: Invoice): Promise<any> {
-  console.log("invoiceData", invoiceData);
+async function createInvoice(invoiceData: Invoice): Promise<ResponseInvoice> {
   try {
     const URL = `${API_URL}/invoices`;
-    console.log("URL", URL);
     const body = JSON.stringify(invoiceData);
-    console.log("body", body);
     const response = await fetch(URL, {
       method: "POST",
       headers: {
@@ -25,10 +25,13 @@ async function createInvoice(invoiceData: Invoice): Promise<any> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log("data", data);
-    return data;
+    return data as ResponseInvoice;
   } catch (error) {
     console.log(error);
+    return {
+      message: "Error creating invoice",
+      invoice: {} as Invoice,
+    } as ResponseInvoice;
   }
 }
 
@@ -77,7 +80,7 @@ async function deleteInvoice(id: string): Promise<{ message: string }> {
   return data;
 }
 
-async function uploadImage(imageFile: File): Promise<any> {
+async function uploadImage(imageFile: File): Promise<{ url: string }> {
   const URL = `${API_URL}/upload`;
   if (!imageFile) {
     return { url: "" };

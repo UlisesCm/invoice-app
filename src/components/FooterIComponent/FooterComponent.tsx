@@ -10,7 +10,8 @@ export const FooterComponent = () => {
   useEffect(() => {
     const price =
       form?.values?.table?.reduce(
-        (total, item) => total + (item.price ?? 0) * (item.quantity ?? 0),
+        (total, item) =>
+          total + Number(item.price ?? 0) * Number(item.quantity ?? 0),
         0,
       ) ?? 0;
     const subtotal = price;

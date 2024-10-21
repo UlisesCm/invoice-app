@@ -125,10 +125,11 @@ export const InvoiceProvider = ({
   const setData = async (id: string) => {
     const res = await getInvoiceById(id as string);
     const imageUrl = res.company.imageUrl;
-    setUrl(res.company.imageUrl);
+    setUrl(imageUrl);
     form.setValues({
       company: {
         ...res.company,
+        image: null,
       },
       client: res.client,
       table: res.table,
