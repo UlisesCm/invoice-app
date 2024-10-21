@@ -9,7 +9,6 @@ export interface Company {
   phoneNo: string;
   email: string;
   imageUrl: string;
-  image?: File | null;
 }
 
 export interface Client {

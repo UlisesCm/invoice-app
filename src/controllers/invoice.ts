@@ -6,10 +6,10 @@ interface ResponseInvoice extends Invoice {
   _id: string;
 }
 // Create a new invoice
-async function createInvoice(invoiceData: any): Promise<any> {
+async function createInvoice(invoiceData: Invoice): Promise<any> {
   console.log("invoiceData", invoiceData);
   try {
-    const URL = `${API_URL}/invoices/`;
+    const URL = `${API_URL}/invoices`;
     console.log("URL", URL);
     const body = JSON.stringify(invoiceData);
     console.log("body", body);
@@ -19,13 +19,16 @@ async function createInvoice(invoiceData: any): Promise<any> {
         Accept: "*/*",
         "Content-Type": "application/json",
       },
-      body,
+      body: body,
     });
-    const data: ResponseInvoice = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("data", data);
     return data;
   } catch (error) {
     console.log(error);
-    return {} as ResponseInvoice;
   }
 }
 
@@ -75,11 +78,15 @@ async function deleteInvoice(id: string): Promise<{ message: string }> {
 }
 
 async function uploadImage(imageFile: File): Promise<any> {
+  const URL = `${API_URL}/upload`;
+  if (!imageFile) {
+    return { url: "" };
+  }
   try {
     const formData = new FormData();
     formData.append("image", imageFile);
 
-    const response = await fetch("http://localhost:3001/upload", {
+    const response = await fetch(URL, {
       method: "POST",
       body: formData,
     });

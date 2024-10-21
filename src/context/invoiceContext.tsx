@@ -3,7 +3,6 @@ import {
   getInvoiceById,
   uploadImage,
 } from "@/controllers/invoice";
-import { Invoice } from "@/interface/invoice";
 import { cleanForm } from "@/model/form";
 import { Form, useForm, UseFormReturnType } from "@mantine/form";
 import { useParams, useRouter } from "next/navigation";
@@ -21,7 +20,7 @@ export interface FormProps {
     country: string;
     phoneNo: string;
     email: string;
-    image: File | null;
+    image?: File | null;
   };
   client: {
     clientCompany: string;
@@ -82,9 +81,11 @@ export const InvoiceProvider = ({
   });
 
   const handleSubmit = async (values: typeof form.values) => {
-    reactToPrintFn();
     if (id === NEW) {
       await handleCreate(values);
+      reactToPrintFn();
+    } else {
+      reactToPrintFn();
     }
   };
 
@@ -95,10 +96,9 @@ export const InvoiceProvider = ({
     table,
   }: FormProps) => {
     try {
-      // const res = await uploadImage(company.image!);
-      // const imageUrl = res.url as string;
-      const imageUrl = "";
-      const newInvoice: any = {
+      const res = await uploadImage(company.image!);
+      const imageUrl = res.url as string;
+      const newInvoice = {
         company: {
           ...company,
           imageUrl,
@@ -108,15 +108,15 @@ export const InvoiceProvider = ({
         no: invoice.no,
         date: `${invoice?.date ?? new Date()}`,
         dueDate: `${invoice?.dueDate ?? new Date()}`,
-        subtotal: invoice.subtotal,
-        tax: invoice.tax,
-        discount: invoice.discount,
-        total: invoice.total,
+        subtotal: +invoice.subtotal,
+        tax: +invoice.tax,
+        discount: +invoice.discount,
+        total: +invoice.total,
         notes: invoice.notes,
       };
       const createdInvoice = await createInvoice(newInvoice);
-      // console.log("createdInvoice", createdInvoice);
-      // router.push(`/${createdInvoice._id}`);
+      const { _id } = createdInvoice.invoice;
+      router.push(`/${_id}`);
     } catch (error) {
       console.log("handle create", error);
     }
@@ -129,7 +129,6 @@ export const InvoiceProvider = ({
     form.setValues({
       company: {
         ...res.company,
-        image: null,
       },
       client: res.client,
       table: res.table,
