@@ -9,6 +9,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/new",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withVanillaExtract(nextConfig);
