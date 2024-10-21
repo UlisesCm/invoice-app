@@ -65,8 +65,8 @@ export const TableComponent = () => {
     form?.setFieldValue("table", [...(table || []), newItem]);
   };
 
-  const removeItem = (id: number) => {
-    const newTable = table?.filter((item) => item.id !== id);
+  const removeItem = (id: string) => {
+    const newTable = table?.filter((item) => item?.id !== id);
     form?.setFieldValue("table", newTable || []);
   };
 

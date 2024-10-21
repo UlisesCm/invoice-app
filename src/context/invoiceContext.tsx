@@ -45,6 +45,7 @@ export interface FormProps {
 }
 
 export interface itemProps {
+  id?: string;
   itemId: number | string;
   description: string;
   quantity: number | string;
