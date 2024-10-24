@@ -1,5 +1,6 @@
 "use client";
 import {
+  Accordion,
   ActionIcon,
   AppShell,
   Box,
@@ -7,8 +8,10 @@ import {
   Button,
   ButtonProps,
   Container,
+  Divider,
   Group,
   Text,
+  TextInput,
 } from "@mantine/core";
 import { PropsWithChildren } from "react";
 import { HeaderButtonContainer } from "./home.css";
@@ -69,6 +72,64 @@ export default function Layout({ children }: PropsWithChildren) {
           )}
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="lg" />
         </Group>
+        {opened && (
+          <Box p={20}>
+            <TextInput
+              styles={{ input: { border: "1px solid gray" } }}
+              leftSection={<IconSearch />}
+              placeholder="Search HubSpot.com"
+              size="md"
+            />
+            <Accordion>
+              <Accordion.Item value="Products">
+                <Accordion.Control>Products</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="Solutions">
+                <Accordion.Control>Solutions</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="Pricing">
+                <Accordion.Control>Pricing</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="Resources">
+                <Accordion.Control>Resources</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="About">
+                <Accordion.Control>Resources</Accordion.Control>
+              </Accordion.Item>
+            </Accordion>
+            <Divider my="md" />
+            <Button fullWidth color="rgb(255, 92, 53)">
+              Get a demo
+            </Button>
+            <Button
+              fullWidth
+              color="rgb(255, 92, 53)"
+              variant="outline"
+              mt={"md"}
+            >
+              Get started free
+            </Button>
+            <Divider my="md" />
+            <Button fullWidth color="rgb(33, 51, 67)">
+              Login
+            </Button>
+            <Divider my="md" />
+            <Accordion>
+              <Accordion.Item value="English">
+                <Accordion.Control>English</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="High Contrast">
+                <Accordion.Control>High Contrast</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="Customer Support">
+                <Accordion.Control>Customer Support</Accordion.Control>
+              </Accordion.Item>
+              <Accordion.Item value="Contact Sales">
+                <Accordion.Control>Resources</Accordion.Control>
+              </Accordion.Item>
+            </Accordion>
+          </Box>
+        )}
         {matches && (
           <Container>
             <Group h={52} justify="space-between">
