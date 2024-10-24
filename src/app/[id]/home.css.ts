@@ -11,3 +11,9 @@ export const DropzoneContainer = style({
   justifyContent: "space-between",
   alignItems: "end",
 });
+
+export const HeaderButtonContainer = style({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+});

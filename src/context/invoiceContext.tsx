@@ -5,6 +5,7 @@ import {
   uploadImage,
 } from "@/controllers/invoice";
 import { cleanForm } from "@/model/form";
+import { Box } from "@mantine/core";
 import { Form, useForm, UseFormReturnType } from "@mantine/form";
 import { useParams, useRouter } from "next/navigation";
 import React, { createContext, useEffect, useState } from "react";
@@ -166,9 +167,11 @@ export const InvoiceProvider = ({
         url,
       }}
     >
-      <Form form={form} onSubmit={handleSubmit}>
-        {children}
-      </Form>
+      <Box bg={"#f6f9fc"} mt={-20} p={20}>
+        <Form form={form} onSubmit={handleSubmit}>
+          {children}
+        </Form>
+      </Box>
     </InvoiceContext.Provider>
   );
 };

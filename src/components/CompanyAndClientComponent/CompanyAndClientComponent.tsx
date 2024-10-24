@@ -1,12 +1,12 @@
 import { InvoiceContext } from "@/context/invoiceContext";
-import { Box, Group, Text, TextInput } from "@mantine/core";
+import { Box, Group, Text, TextInput, Title } from "@mantine/core";
 import React, { useContext } from "react";
 
 export const CompanyAndClientComponent = () => {
   const { form } = useContext(InvoiceContext);
   return (
     <Box w={"50%"}>
-      <Text>Invoice</Text>
+      <Title c={"rgb(33, 51, 67)"}>Invoice</Title>
       <Box>
         <TextInput
           placeholder="Your Company"

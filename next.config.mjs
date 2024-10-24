@@ -25,6 +25,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.hubspot.com",
+        pathname: "/hs-fs/hubfs/**",
+      },
     ],
   },
 };

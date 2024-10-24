@@ -1,38 +1,33 @@
-"use client";
-import { Box, Button, Container, Group, Paper } from "@mantine/core";
-import { Container as ContainerStyle } from "./home.css";
-import { InvoiceProvider } from "@/context/invoiceContext";
-import { CompanyAndClientComponent } from "@/components/CompanyAndClientComponent/CompanyAndClientComponent";
-import { InfoComponent } from "@/components/InfoComponent/InfoComponent";
-import { TableComponent } from "@/components/TableComponent/TableComponent";
-import { FooterComponent } from "@/components/FooterIComponent/FooterComponent";
-import { useRef } from "react";
-import { useRouter } from "next/navigation";
+import { Box, Center, Container, Stack, Text, Title } from "@mantine/core";
+import { InvoiceComponent } from "@/components/InvoiceComponent/InvoiceComponent";
+import { HowToUseComponent } from "@/components/HowToUseComponent/HowToUseComponent";
+import { InvoiceForYourBusiness } from "@/components/InvoiceForYourBusiness/InvoiceForYourBusiness";
+import { InvoiceFeatures } from "@/components/InvoiceFeatures/InvoiceFeatures";
+import { InvoiceFAQComponent } from "@/components/InvoiceFAQComponent/InvoiceFAQComponent";
 
 export default function Home() {
-  const route = useRouter();
-  const contentRef = useRef<HTMLDivElement>(null);
-  const handleNew = () => {
-    route.push("/new");
-  };
   return (
-    <InvoiceProvider contentRef={contentRef}>
-      <Container>
-        <Group mt={"sm"}>
-          <Button type="submit">Download Now</Button>
-          <Button type="button" variant="light" onClick={handleNew}>
-            Create New
-          </Button>
-        </Group>
-        <Paper shadow="sm" withBorder p="xl" my="sm" ref={contentRef}>
-          <Box className={ContainerStyle}>
-            <CompanyAndClientComponent />
-            <InfoComponent />
-          </Box>
-          <TableComponent />
-          <FooterComponent />
-        </Paper>
+    <Box>
+      <Container h={384} bg={"rgb(33, 51, 67)"} fluid>
+        <Center h={"100%"}>
+          <Stack justify="center" align="center">
+            <Title c={"white"} ta={"center"}>
+              Invoice Generator
+            </Title>
+            <Text c={"white"} w={{ sm: 300, md: 600 }} lh={2}>
+              Tired of manually creating invoices? Say hello to HubSpot's free
+              online Invoice Generator! Make professional invoices that showcase
+              your brand and impress your customers. Then, manage your invoice
+              with the HubSpot invoice integration.
+            </Text>
+          </Stack>
+        </Center>
       </Container>
-    </InvoiceProvider>
+      <InvoiceComponent />
+      <HowToUseComponent />
+      <InvoiceForYourBusiness />
+      <InvoiceFeatures />
+      <InvoiceFAQComponent />
+    </Box>
   );
 }
