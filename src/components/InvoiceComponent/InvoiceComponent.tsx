@@ -25,6 +25,8 @@ export const InvoiceComponent = () => {
         <Box w={80} h={80} className={FloatButton} onClick={handleNew}>
           <Image
             alt="hubSpot tools"
+            width={65}
+            height={65}
             src={
               "https://cdn2.hubspot.net/hubfs/53/invoice%20generator/toolset.svg"
             }
