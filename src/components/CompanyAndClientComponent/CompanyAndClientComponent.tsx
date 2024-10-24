@@ -1,5 +1,5 @@
 import { InvoiceContext } from "@/context/invoiceContext";
-import { Box, Group, Text, TextInput, Title } from "@mantine/core";
+import { Box, Group, TextInput, Title } from "@mantine/core";
 import React, { useContext } from "react";
 
 export const CompanyAndClientComponent = () => {

@@ -27,18 +27,22 @@ export const InvoiceForYourBusiness = () => {
             />
           </Box>
           <Stack>
-            <Title>A custom invoice for your business</Title>
+            <Title>{"A custom invoice for your business"}</Title>
             <Text>
+              {`
               Customize your invoice by adding your business details, logo, and
               changing the colors to fit your business branding. Stand out from
               the competition with tailored invoices that reflect your
               professional identity.
+              `}
             </Text>
             <Text>
+              {`
               Whether you're a small business owner or an enterprise, Invoice
               Generator allows you to effortlessly generate professional
               invoices to impress your clients. Focus on what you do best and
               leave the invoicing design to us.
+              `}
             </Text>
           </Stack>
         </SimpleGrid>
