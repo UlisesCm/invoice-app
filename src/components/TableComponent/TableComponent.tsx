@@ -44,6 +44,7 @@ export const TableComponent = () => {
             onClick={() => element?.id && removeItem(element?.id)}
             w={20}
             color="rgb(255, 92, 53)"
+            aria-label="remove item"
           >
             <IconX />
           </ActionIcon>

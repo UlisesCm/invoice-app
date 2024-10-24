@@ -24,6 +24,7 @@ export const InvoiceComponent = () => {
       {matches && (
         <Box w={80} h={80} className={FloatButton} onClick={handleNew}>
           <Image
+            alt="hubSpot tools"
             src={
               "https://cdn2.hubspot.net/hubfs/53/invoice%20generator/toolset.svg"
             }
@@ -47,6 +48,7 @@ export const InvoiceComponent = () => {
             color={"rgb(255, 92, 53)"}
             onClick={handleNew}
             radius={8}
+            aria-label="Share your invoice using HubSpot"
           >
             Share your invoice using HubSpot
           </Button>
@@ -56,6 +58,7 @@ export const InvoiceComponent = () => {
             variant="outline"
             color={"rgb(255, 92, 53)"}
             radius={8}
+            aria-label="Download Now"
           >
             Download Now
           </Button>

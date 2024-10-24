@@ -75,7 +75,7 @@ export default function Layout({ children }: PropsWithChildren) {
         {opened && (
           <Box p={20}>
             <TextInput
-              styles={{ input: { border: "1px solid gray" } }}
+              styles={{ input: { border: "1px solid" } }}
               leftSection={<IconSearch />}
               placeholder="Search HubSpot.com"
               size="md"
@@ -98,7 +98,7 @@ export default function Layout({ children }: PropsWithChildren) {
               </Accordion.Item>
             </Accordion>
             <Divider my="md" />
-            <Button fullWidth color="rgb(255, 92, 53)">
+            <Button fullWidth color="rgb(255, 92, 53)" aria-label="Get a demo">
               Get a demo
             </Button>
             <Button
@@ -106,11 +106,12 @@ export default function Layout({ children }: PropsWithChildren) {
               color="rgb(255, 92, 53)"
               variant="outline"
               mt={"md"}
+              aria-label="Get started free"
             >
               Get started free
             </Button>
             <Divider my="md" />
-            <Button fullWidth color="rgb(33, 51, 67)">
+            <Button fullWidth color="rgb(33, 51, 67)" aria-label="Login">
               Login
             </Button>
             <Divider my="md" />
@@ -140,6 +141,7 @@ export default function Layout({ children }: PropsWithChildren) {
                     leftSection={button.icon}
                     rightSection={button.rightIcon && button.rightIcon}
                     {...buttonProps}
+                    aria-label={button.title}
                   >
                     <Text fz={12} fw={"bold"}>
                       {button.title}
@@ -149,9 +151,13 @@ export default function Layout({ children }: PropsWithChildren) {
               </Box>
               <Box className={HeaderButtonContainer}>
                 <ActionIcon variant="transparent">
-                  <IconSearch stroke={1.5} color="rgb(33, 51, 67)" />
+                  <IconSearch
+                    stroke={1.5}
+                    color="rgb(33, 51, 67)"
+                    aria-label="icon search"
+                  />
                 </ActionIcon>
-                <Button {...buttonProps}>
+                <Button {...buttonProps} aria-label="Log in">
                   <Text fz={12} fw={"bold"}>
                     Log in
                   </Text>
@@ -159,6 +165,7 @@ export default function Layout({ children }: PropsWithChildren) {
                 <Button
                   {...buttonProps}
                   rightSection={<IconChevronDown stroke={1.2} />}
+                  aria-label="About"
                 >
                   <Text fz={12} fw={"bold"}>
                     About
@@ -176,18 +183,37 @@ export default function Layout({ children }: PropsWithChildren) {
                     height={29}
                   />
                 </Box>
-                <Button {...bottomButtons} rightSection={<IconChevronDown />}>
+                <Button
+                  {...bottomButtons}
+                  rightSection={<IconChevronDown />}
+                  aria-label="Products"
+                >
                   Products
                 </Button>
-                <Button {...bottomButtons} rightSection={<IconChevronDown />}>
+                <Button
+                  {...bottomButtons}
+                  rightSection={<IconChevronDown />}
+                  aria-label="Solutions"
+                >
                   Solutions
                 </Button>
-                <Button {...bottomButtons}>Pricing</Button>
-                <Button {...bottomButtons} rightSection={<IconChevronDown />}>
+                <Button {...bottomButtons} aria-label="Pricing">
+                  Pricing
+                </Button>
+                <Button
+                  {...bottomButtons}
+                  rightSection={<IconChevronDown />}
+                  aria-label="Resources"
+                >
                   Resources
                 </Button>
               </Box>
-              <Button radius={8} size="md" color={"rgb(255, 92, 53)"}>
+              <Button
+                radius={8}
+                size="md"
+                color={"rgb(255, 92, 53)"}
+                aria-label=" Start free or get a demo"
+              >
                 Start free or get a demo
               </Button>
             </Group>
