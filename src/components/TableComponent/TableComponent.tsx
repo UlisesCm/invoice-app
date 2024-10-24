@@ -43,6 +43,7 @@ export const TableComponent = () => {
             radius={"xl"}
             onClick={() => element?.id && removeItem(element?.id)}
             w={20}
+            color="rgb(255, 92, 53)"
           >
             <IconX />
           </ActionIcon>
@@ -74,18 +75,24 @@ export const TableComponent = () => {
     <Box ref={ref}>
       <Table mt={"xl"}>
         <Table.Thead>
-          <Table.Tr>
-            <Table.Th>ID</Table.Th>
-            <Table.Th>Description</Table.Th>
-            <Table.Th>Quantity</Table.Th>
-            <Table.Th>Price</Table.Th>
+          <Table.Tr bg={"rgb(33, 51, 67)"}>
+            <Table.Th c={"white"}>ID</Table.Th>
+            <Table.Th c={"white"}>Description</Table.Th>
+            <Table.Th c={"white"}>Quantity</Table.Th>
+            <Table.Th c={"white"}>Price</Table.Th>
             <Table.Th />
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
       {hovered && (
-        <Button onClick={addItem} fullWidth mt={"xs"}>
+        <Button
+          onClick={addItem}
+          fullWidth
+          mt={"xs"}
+          color="rgb(255, 92, 53)"
+          radius={0}
+        >
           Add Item
         </Button>
       )}
